@@ -36,6 +36,14 @@ async function run() {
       res.send(result)
     })
 
+    // for update
+    app.get('/users/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) }
+      const user = await userCollection.findOne(query)
+      res.send(user)
+    })
+
     app.post('/users', async (req, res) => {
       const user = req.body
       console.log("newUser ", user)
@@ -43,6 +51,12 @@ async function run() {
       res.send(result)
     })
 
+    app.put('/users/:id', (req, res) => {
+      const id = req.params.id;
+      const updatedUser = req.body;
+      console.log(updatedUser)
+    })
+    
     app.delete('/users/:id', async (req, res) => {
       const id = req.params.id
       console.log('deleted from server id no:', id)

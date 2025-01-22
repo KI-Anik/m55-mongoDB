@@ -1,4 +1,5 @@
 import './App.css'
+import {Link} from  "react-router-dom"
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <>
+    <Link to={'/users'}>see users</Link>
       <h1>Simple crud</h1>
      <form onSubmit={handleAddUser}>
       <input type="text" name="name" id="" />
